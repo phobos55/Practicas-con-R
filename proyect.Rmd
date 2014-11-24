@@ -1,0 +1,53 @@
+---
+title: "Regression Models Course Project"
+author: "phobos"
+date: "Sunday, November 23, 2014"
+output: html_document
+---
+
+##### The data
+- Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+```{r}
+head(mtcars,3)
+```
+A data frame with 32 observations on 11 variables.
+
+Variables |Description
+----------|-------------
+mpg       |Miles/(US) gallon
+cyl       |Number of cylinders
+disp      |Displacement (cu.in.)
+hp        |Gross horsepower
+drat      |Rear axle ratio
+wt        |Weight (lb/1000)
+qsec      |1/4 mile time
+va        |V/S
+am        |Transmission (0 = automatic, 1 = manual
+gear      |Number of forward gears
+carb      |Number of carburetors
+
+
+- Graph data some variables according to the type of transmission. The automatic transmission in red and The manual transmission in black
+```{r,fig.height=12,fig.width=17}
+pairs(mtcars[,1:7], main = "Motor Trend Car Road Tests", col = 1 + (mtcars$am == 0), pch = 19,cex = 2)
+```
+
+
+- Looking at a data set of a collection of cars, they are interested in exploring the relationship between a set of variables and miles per gallon (MPG) (outcome). They are particularly interested in the following two questions:  
+
+**"Is an automatic or manual transmission better for MPG"**  
+
+```{r}
+mean(mtcars$mpg[mtcars$am==1])
+mean(mtcars$mpg[mtcars$am==0])
+```
+The manual transmission **`r mean(mtcars$mpg[mtcars$am==1])`** better than the automatic transmission **`r mean(mtcars$mpg[mtcars$am==0])`** for Miles/(US) gallon
+
+**"Quantify the MPG difference between automatic and manual transmissions"**
+
+```{r}
+mean(mtcars$mpg[mtcars$am==1]) - mean(mtcars$mpg[mtcars$am==0])
+```
+
+The difference between manual and automatic transmission is **`r mean(mtcars$mpg[mtcars$am==1]) - mean(mtcars$mpg[mtcars$am==0])`** Miles/(US) gallon
+
