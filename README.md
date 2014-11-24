@@ -1,4 +1,5 @@
 Practicas-con-R
 ===============
 
-Se describen pequeños scrip de comando en R para análisis de Datos
+I could not upload the PDF file enformato, I hope you forgive me.
+I welcome your comments to help me export it to pdf for Windows
